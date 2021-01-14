@@ -1,0 +1,24 @@
+{# /templates/hello-text.html.twig #}
+
+<table>
+<thead>
+    <tr>
+    <th>Hora y Fecha</th>
+    <th>TimeZone</th>
+    </tr>
+</thead>
+<tbody>
+{% for key, record in text %}
+<tr>
+    {% for key1, record1 in record %}
+         {% if key1 == "timezone" %}
+            <td>{{ record1 }}</td>
+         {% endif %}
+         {% if key1 == "datetime" %}
+            <td>{{ record1|date('Y-m-d H:i:s') }}</td>
+         {% endif %}
+    {% endfor %}
+</tr>
+{% endfor %}
+</tbody>
+</table>
